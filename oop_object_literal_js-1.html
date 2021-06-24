@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Literal using OOP JS</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        var rect = {
+            width: 100,
+            height: 50,
+
+            draw: function() {
+                console.log('I am a rectangle')
+                console.log('My width is: ' + this.width)
+            }
+        }
+        rect.draw()
+
+        rect.width = 500
+
+        rect.draw()
+
+    </script>
+
+</body>
+</html>

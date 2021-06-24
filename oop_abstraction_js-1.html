@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Property</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        var Rectangle = function (width, height) {
+
+            this.width = width
+            this.height = height
+            var position = {
+                x: 56,
+                y: -100
+            }
+
+            var printProperties = function () {
+                console.log('My width is: ' + width)
+                console.log('My height is: ' + height)
+            }
+
+            this.draw = function () {
+                console.log('I am a rectangle')
+                printProperties()
+                console.log('position x: ' + position.x + ', position y: ' + position.y)
+            }
+        }
+
+        var rect = new Rectangle(69, 31)
+        rect.draw()
+
+    </script>
+
+</body>
+
+</html>
