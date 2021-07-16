@@ -19,6 +19,7 @@
         }
 
         let baseObj = Object.getPrototypeOf(person)
+		console.log(baseobj)
         let descriptor = Object.getOwnPropertyDescriptor(baseObj, 'toString')
         console.log(descriptor)
 
