@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Method using OOP JS</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, email) {
+                this.name = name
+                this.email = email
+            }
+
+            print() {
+                console.log(this.name, this.email)
+            }
+            static create(str) {
+                let person = JSON.parse(str)
+                return new Person(person.name, person.email)
+            }
+        }
+
+        let str = '{"name": "Ajmain Nishu", "email": "ajmainnishu@gmail.com"}'
+
+        let p = Person.create(str)
+        console.log(p)
+        console.log(p instanceof Person)
+        p.print()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol Private Data using OOP JS</title>
+</head>
+
+<body>
+    <script>
+        const _radius = Symbol()
+        const _name = Symbol()
+        class Circle {
+            constructor(radius, name) {
+                this[_radius] = radius
+                this[_name] = name
+            }
+
+            draw() {
+                console.log('Drawing...')
+            }
+        }
+
+        let c1 = new Circle(2, 'JS')
+
+        console.log(c1)
+    </script>
+</body>
+
+</html>
