@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Implementation using Callback</title>
+</head>
+
+<body>
+    <script>
+        function getRequest(url, callback) {
+            const xhr = new XMLHttpRequest()
+            xhr.open('get', url)
+
+            xhr.onreadystatechange = function (e) {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        let response = JSON.parse(xhr.response)
+                        callback(null, response)
+                    } else {
+                        callback(xhr.status, null)
+                    }
+                }
+            }
+            xhr.send()
+        }
+
+        getRequest('https://jsonplaceholder.typicode.com/posts', (err, res) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(res)
+            }
+        })
+    </script>
+</body>
+
+</html>
