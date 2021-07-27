@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Iterator</title>
+</head>
+
+<body>
+    <script>
+        let asyncIterable = {
+            [Symbol.asyncIterator]() {
+                let i = 0
+                return {
+                    next() {
+                        if (i < 5) {
+                            return Promise.resolve({
+                                value: i++,
+                                done: false
+                            })
+                        } else {
+                            return Promise.resolve({
+                                done: true
+                            })
+                        }
+                    }
+                }
+            }
+        }
+
+        let iterate = asyncIterable[Symbol.asyncIterator]();
+
+        (async function () {
+            console.log(await iterate.next())
+            console.log(await iterate.next())
+            console.log(await iterate.next())
+            console.log(await iterate.next())
+            console.log(await iterate.next())
+            console.log(await iterate.next())
+            console.log(await iterate.next())
+        })()
+    </script>
+</body>
+
+</html>
