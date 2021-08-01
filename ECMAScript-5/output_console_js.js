@@ -1,4 +1,4 @@
-//program output in terminal
+//program output using console
 console.log ('Hello World')
 
 console.log ("I Love Cricket")
